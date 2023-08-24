@@ -1,10 +1,17 @@
+//
+//  FirestoreService.swift
+//
+//
+//  Created by Jason Schneider on 8/24/23.
+//
+
 import FirebaseFirestore
 
 /**
  A protocol defining Firestore CRUD operations and document retrieval methods.
  */
 @available(iOS 13.0.0, *)
-public protocol FirestoreRepository {
+public protocol FirestoreService {
     associatedtype T: Codable
     /**
      Creates a new Firestore document from the provided model in the specified collection.

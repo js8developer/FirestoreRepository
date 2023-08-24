@@ -1,6 +1,6 @@
-# FirestoreRepository Swift Package 📦🔥
+# FirestoreService Swift Package 📦🔥
 
-Welcome to FirestoreRepository, a Swift package that provides easy integration with Firestore databases. This package offers CRUD (Create, Read, Update, Delete) operations and document retrieval methods for Firestore collections. It's designed to simplify Firestore interactions in your Swift projects 🤓.
+Welcome to FirestoreService, a Swift package that provides easy integration with Firestore databases. This package offers CRUD (Create, Read, Update, Delete) operations and document retrieval methods for Firestore collections. It's designed to simplify Firestore interactions in your Swift projects 🤓.
 
 ## Features
 
@@ -11,11 +11,11 @@ Welcome to FirestoreRepository, a Swift package that provides easy integration w
 
 ## Installation
 
-You can easily integrate FirestoreRepository into your project using Swift Package Manager.
+You can easily integrate FirestoreService into your project using Swift Package Manager.
 
 1. In Xcode, open your project.
 2. Go to "File" > "Swift Packages" > "Add Package Dependency..."
-3. Enter the URL of this repository: `https://github.com/js8developer/FirestoreRepository`
+3. Enter the URL of this repository: `https://github.com/js8developer/FirestoreService`
 4. Select the package from the search results.
 5. Choose the version or branch you want to use.
 6. Add the package to your desired target.
@@ -25,9 +25,9 @@ You can easily integrate FirestoreRepository into your project using Swift Packa
 ### Creating a Firestore Document
 
 ```swift
-import FirestoreRepository
+import FirestoreService
 
-let repository = FirestoreRepositoryImpl<YourModel>()
+let repository = FirestoreServiceImpl<YourModel>()
 do {
     let model = YourModel(/* initialize your model */)
     let documentID = try await repository.createDocument(model, in: "your-collection")
@@ -40,9 +40,9 @@ do {
 ### Reading a Firestore Document
 
 ```swift
-import FirestoreRepository
+import FirestoreService
 
-let repository = FirestoreRepositoryImpl<YourModel>()
+let repository = FirestoreServiceImpl<YourModel>()
 do {
     if let model = try await repository.readDocument(documentID: "your-document-id", from: "your-collection") {
         print("Read document:", model)
@@ -57,9 +57,9 @@ do {
 ### Updating a Firestore Document
 
 ```swift
-import FirestoreRepository
+import FirestoreService
 
-let repository = FirestoreRepositoryImpl<YourModel>()
+let repository = FirestoreServiceImpl<YourModel>()
 do {
     let updatedModel = YourModel(/* updated values */)
     try await repository.updateDocument(updatedModel, documentID: "your-document-id", in: "your-collection")
@@ -72,9 +72,9 @@ do {
 ### Deleting a Firestore Document
 
 ```swift
-import FirestoreRepository
+import FirestoreService
 
-let repository = FirestoreRepositoryImpl<YourModel>()
+let repository = FirestoreServiceImpl<YourModel>()
 do {
     try await repository.deleteDocument(documentID: "your-document-id", from: "your-collection")
     print("Document deleted successfully.")
@@ -86,9 +86,9 @@ do {
 ### Fetching Firestore Documents with Pagination
 
 ```swift
-import FirestoreRepository
+import FirestoreService
 
-let repository = FirestoreRepositoryImpl<YourModel>()
+let repository = FirestoreServiceImpl<YourModel>()
 do {
     let limit: Int = 10
     let lastDocument: DocumentSnapshot? = /* provide the last document for pagination */

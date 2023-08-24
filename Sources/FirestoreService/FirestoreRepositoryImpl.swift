@@ -1,5 +1,5 @@
 //
-//  FirestoreRepositoryImpl.swift
+//  FirestoreServiceImpl.swift
 //  
 //
 //  Created by Jason Schneider on 8/24/23.
@@ -11,7 +11,7 @@ import FirebaseFirestore
  An implementation of the FirestoreRepository protocol providing CRUD operations using Firestore database.
  */
 @available(iOS 13.0.0, *)
-public class FirestoreRepositoryImpl<T: Codable>: FirestoreRepository {
+public class FirestoreServiceImpl<T: Codable>: FirestoreService {
     private let db = Firestore.firestore()
 
     /**
