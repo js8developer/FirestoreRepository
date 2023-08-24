@@ -19,3 +19,19 @@ You can easily integrate FirestoreRepository into your project using Swift Packa
 4. Select the package from the search results.
 5. Choose the version or branch you want to use.
 6. Add the package to your desired target.
+
+## Usage
+
+### Creating a Firestore Document
+
+```swift
+import YourPackageName
+
+let repository = FirestoreRepositoryImpl<YourModel>()
+do {
+    let model = YourModel(/* initialize your model */)
+    let documentID = try await repository.createDocument(model, in: "your-collection")
+    print("Document created with ID:", documentID)
+} catch {
+    print("Error creating document:", error.localizedDescription)
+}
