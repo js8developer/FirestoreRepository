@@ -1,4 +1,4 @@
-# FirestoreService Swift Package 📦🔥
+# FirestoreService 🔥 - Swift Package 📦
 
 Welcome to FirestoreService, a Swift package that provides easy integration with Firestore databases. This package offers CRUD (Create, Read, Update, Delete) operations and document retrieval methods for Firestore collections. It's designed to simplify Firestore interactions in your Swift projects 🤓.
 
