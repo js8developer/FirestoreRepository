@@ -25,7 +25,7 @@ You can easily integrate FirestoreRepository into your project using Swift Packa
 ### Creating a Firestore Document
 
 ```swift
-import YourPackageName
+import FirestoreRepository
 
 let repository = FirestoreRepositoryImpl<YourModel>()
 do {
@@ -35,3 +35,72 @@ do {
 } catch {
     print("Error creating document:", error.localizedDescription)
 }
+```
+
+### Reading a Firestore Document
+
+```swift
+import FirestoreRepository
+
+let repository = FirestoreRepositoryImpl<YourModel>()
+do {
+    if let model = try await repository.readDocument(documentID: "your-document-id", from: "your-collection") {
+        print("Read document:", model)
+    } else {
+        print("Document not found.")
+    }
+} catch {
+    print("Error reading document:", error.localizedDescription)
+}
+```
+
+### Updating a Firestore Document
+
+```swift
+import FirestoreRepository
+
+let repository = FirestoreRepositoryImpl<YourModel>()
+do {
+    let updatedModel = YourModel(/* updated values */)
+    try await repository.updateDocument(updatedModel, documentID: "your-document-id", in: "your-collection")
+    print("Document updated successfully.")
+} catch {
+    print("Error updating document:", error.localizedDescription)
+}
+```
+
+### Deleting a Firestore Document
+
+```swift
+import FirestoreRepository
+
+let repository = FirestoreRepositoryImpl<YourModel>()
+do {
+    try await repository.deleteDocument(documentID: "your-document-id", from: "your-collection")
+    print("Document deleted successfully.")
+} catch {
+    print("Error deleting document:", error.localizedDescription)
+}
+```
+
+### Fetching Firestore Documents with Pagination
+
+```swift
+import FirestoreRepository
+
+let repository = FirestoreRepositoryImpl<YourModel>()
+do {
+    let limit: Int = 10
+    let lastDocument: DocumentSnapshot? = /* provide the last document for pagination */
+    let documents = try await repository.fetchDocuments(from: "your-collection", limit: limit, lastDocument: lastDocument)
+    print("Fetched documents:", documents)
+} catch {
+    print("Error fetching documents:", error.localizedDescription)
+}
+```
+
+### Contribution
+Contributions are welcome! If you find a bug or have an enhancement in mind, feel free to create an issue or submit a pull request.
+
+### License
+This package is licensed under the MIT License.
