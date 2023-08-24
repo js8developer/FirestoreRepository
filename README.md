@@ -28,6 +28,7 @@ You can easily integrate FirestoreService into your project using Swift Package 
 import FirestoreService
 
 let firestoreService = FirestoreServiceImpl<YourModel>()
+
 do {
     let model = YourModel(/* initialize your model */)
     let documentID = try await firestoreService.createDocument(model, in: "your-collection")
@@ -43,6 +44,7 @@ do {
 import FirestoreService
 
 let firestoreService = FirestoreServiceImpl<YourModel>()
+
 do {
     if let model = try await firestoreService.readDocument(documentID: "your-document-id", from: "your-collection") {
         print("Read document:", model)
@@ -60,6 +62,7 @@ do {
 import FirestoreService
 
 let firestoreService = FirestoreServiceImpl<YourModel>()
+
 do {
     let updatedModel = YourModel(/* updated values */)
     try await firestoreService.updateDocument(updatedModel, documentID: "your-document-id", in: "your-collection")
@@ -75,6 +78,7 @@ do {
 import FirestoreService
 
 let firestoreService = FirestoreServiceImpl<YourModel>()
+
 do {
     try await firestoreService.deleteDocument(documentID: "your-document-id", from: "your-collection")
     print("Document deleted successfully.")
@@ -89,6 +93,7 @@ do {
 import FirestoreService
 
 let firestoreService = FirestoreServiceImpl<YourModel>()
+
 do {
     let limit: Int = 10
     let lastDocument: DocumentSnapshot? = /* provide the last document for pagination */
